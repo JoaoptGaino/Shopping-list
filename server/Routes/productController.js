@@ -1,27 +1,10 @@
 const express = require('express');
-const Products = require('./models/dbHelpers');
-const app = express();
+const Products = require('../models/dbHelpers');
 
-app.use(express.json());
+const router = express.Router();
 
-const PORT = 3000;
-
-
-app.get('/', (req, res) => {
-    res.json({ message: "eai cuzao" })
-});
-
-app.post('/api/addProduct', (req, res) => {
-    Products.add(req.body)
-        .then(product => {
-            res.status(200).json(product);
-        })
-        .catch(err => {
-            res.status(500).json({ message: "Cannot add product" });
-        });
-});
-
-app.get('/api/products', (req, res) => {
+//SELECT
+router.get('/', (req, res) => {
     Products.find()
         .then(products => {
             res.status(200).json(products)
@@ -31,7 +14,17 @@ app.get('/api/products', (req, res) => {
         })
 });
 
-app.get('/api/products/:id', (req, res) => {
+router.post('/', (req, res) => {
+    Products.add(req.body)
+        .then(product => {
+            res.status(200).json(product);
+        })
+        .catch(err => {
+            res.status(500).json({ message: "Cannot add product" });
+        });
+});
+
+router.get('/:id', (req, res) => {
     const { id } = req.params;
     Products.findById(id)
         .then(product => {
@@ -47,7 +40,7 @@ app.get('/api/products/:id', (req, res) => {
         });
 });
 
-app.delete('/api/products/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const { id } = req.params;
     Products.remove(id)
         .then(count => {
@@ -63,7 +56,7 @@ app.delete('/api/products/:id', (req, res) => {
         })
 });
 
-app.patch('/api/products/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
     const { id } = req.params;
     const changes = req.body;
     Products.update(id, changes)
@@ -80,6 +73,4 @@ app.patch('/api/products/:id', (req, res) => {
         });
 });
 
-app.listen(PORT, () => {
-    console.log(`Running at ${PORT}`);
-});
+module.exports = router;
