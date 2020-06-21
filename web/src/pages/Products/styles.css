@@ -1,0 +1,16 @@
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+}
+
+#toBuy {
+    text-align: center;
+}
+
+#products {
+    text-align: center;
+    cursor: pointer;
+}
