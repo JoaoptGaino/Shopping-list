@@ -10,7 +10,73 @@
     text-align: center;
 }
 
+#buttons {
+    text-align: center;
+}
+
+#buttons ul {
+    list-style-type: none;
+}
+
+
+/* .addList {
+    color: white;
+    background-color: green;
+}
+ */
+
+.removeLatest {
+    color: white;
+    background-color: #db1b1b;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 60%;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.removeAll {
+    color: black;
+    background-color: #ff0000;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    width: 60%;
+    display: inline-block;
+    font-size: 16px;
+}
+
 #products {
     text-align: center;
     cursor: pointer;
+}
+
+#products li {
+    list-style-type: none;
+}
+
+.linkButton {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.linkButton:hover {
+    text-decoration: none;
+    background-color: teal;
+    color: black;
+}
+
+.add {
+    justify-content: start;
+    font-size: 12px;
 }
